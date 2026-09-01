@@ -3,21 +3,17 @@ interface MenuItem{
 	href :string,
 	label:string
 }
+interface Props {
+    menuData: MenuItem[];
+}
 
+const {menuData} = Astro.props as Props;
 ---
 <nav class="header-nav">
     <ul class="nav-list flex items-center w-full gap-6 *:text-gray-600 *:font-medium">
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-        </li>
+        {menuData.map(({href, label})=>(
+            <li class="nav-item">
+            <a class="nav-link" href={href}>{label}</a>
+        </li>))}
     </ul>
 </nav>
