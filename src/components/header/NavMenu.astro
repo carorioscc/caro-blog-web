@@ -10,7 +10,7 @@ interface Props {
 const {menuData} = Astro.props as Props;
 ---
 <nav class="header-nav">
-    <ul class="nav-list flex items-center w-full gap-6 *:text-gray-600 *:font-medium">
+    <ul class="nav-list flex items-center w-full gap-6 *:text-gray-600 dark:*:text-gray-300 *:font-medium">
         {menuData.map(({href, label})=>(
             <li class="nav-item">
             <a class="nav-link" href={href}>{label}</a>
